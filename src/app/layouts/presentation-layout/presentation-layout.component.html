@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default bg-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">UNIJOBS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLinkActive]="['active']" [routerLink]="['/home']"> Home </a></li>
+        <li><a routerLinkActive="active" [routerLink]="['/auth/login']"> Login </a></li>
+        <li><a routerLinkActive="active" [routerLink]="['/auth/register']"> Register </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+
+  <img src="/src/img/unijobs_logo.png" class="img-responsive margin" style="display:inline" width="30%" height="30%">
+
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">Who are we?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  <h2 class="margin">Team</h2><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Ionut-Mihai Marisca</h3>
+      <p>Architect | Frontend Dev</p>
+      <img src="/src/img/team/ionut.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <h3>Alexandra Neamtu</h3>
+      <p>Scrum master | Frontend Dev</p>
+      <img src="/src/img/team/ale.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <h3>Aris Miuta</h3>
+      <p>Team leader | Frontend Dev</p>
+      <img src="/src/img/team/aris.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Alexandru Matica</h3>
+      <p>Slave | Backend Dev</p>
+      <img src="/src/img/team/alex.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <h3>Bogdan Morariu</h3>
+      <p>Lazy expert | Backend Dev</p>
+      <img src="/src/img/team/bogdan.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <h3>Sam Muntean </h3>
+      <p>Backend Dev</p>
+      <img src="/src/img/team/sam.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Cristina Man</h3>
+      <p>Backend Dev</p>
+      <img src="/src/img/team/cris.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <h3>Nicu Mihai</h3>
+      <p>Backend Dev</p>
+      <img src="/src/img/team/nicu.png" class="img-responsive center-block margin" style="width:35%" alt="Image">
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Unijobs.com</p>
+</footer>
