@@ -1,3 +1,53 @@
-<p>
-  register works!
-</p>
+<form class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="email" class="col-lg-3 control-label">Email*</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="email" placeholder="Email">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="username" class="col-lg-3 control-label">Username*</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="username" placeholder="Username" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="password" class="col-lg-3 control-label">Password*</label>
+        <div class="col-lg-8">
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="rePassword" class="col-lg-3 control-label">Re-type password*</label>
+        <div class="col-lg-8">
+          <input type="password" class="form-control" id="rePassword" placeholder="Re-type Password">
+        </div>
+      </div>
+    </div>
+    <!--div class="form-group">
+      <div class="col-lg-7 col-lg-offset-3">
+        <label class="form-check-label checkbox-inline"><h5>
+          <input type="checkbox" class="form-check-input">Employer</h5>
+        </label>
+        <label class="form-check-label checkbox-inline"><h5>
+          <input type="checkbox" class="form-check-input">Employee</h5>
+        </label>
+      </div>
+    </div-->
+    <br>
+    <div class="form-group">
+      <div class="col-lg-7 col-lg-offset-3">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+  </fieldset>
+</form>
