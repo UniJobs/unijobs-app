@@ -8,16 +8,18 @@
       </button>
       <a class="navbar-brand" href="#">UNIJOBS</a>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a> Hello, {{user.username}}</a></li>
+      <li><a [routerLinkActive]="['active']" [routerLink]="['/home']"> Home </a></li>
+      <li><a [routerLinkActive]="['active']" [routerLink]="['/user/jobs']"> Jobs </a></li>
+      <li><a [routerLinkActive]="['active']" (click)="logout()"> Log out </a></li>
+    </ul>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a [routerLinkActive]="['active']" [routerLink]="['/home']"> Home </a></li>
-        <li><a [routerLinkActive]="['active']" (click)="logout()"> Log out </a></li>
-      </ul>
     </div>
   </div>
 </nav>
 
-<div class="container text-center">
+<div class="container">
   <router-outlet></router-outlet>
 </div>
 
