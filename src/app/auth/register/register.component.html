@@ -1,3 +1,55 @@
-<p>
-  register works!
-</p>
+<form class="form-horizontal" role="form" (ngSubmit)="f.form.valid && register(password.value,repassword.value)" #f="ngForm" novalidate>
+  <fieldset>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email?.valid}">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="email" class="col-lg-3 control-label">Email</label>
+        <div class="col-lg-8">
+          <input type="email" class="form-control" id="email" [(ngModel)]="model.email" #email="ngModel" name="email" placeholder="Email" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username?.valid }">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="username" class="col-lg-3 control-label">Username</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="username" [(ngModel)]="model.username" name="username" #username="ngModel" placeholder="Username" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.value }">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="password" class="col-lg-3 control-label">Password</label>
+        <div class="col-lg-8">
+          <input type="password" class="form-control" id="password" name="password" #password placeholder="Password">
+        </div>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && (!repassword.value || repassword.value != password.value) }">
+      <div class="col-lg-6 col-lg-offset-3">
+        <label for="rePassword" class="col-lg-3 control-label">Confirm password</label>
+        <div class="col-lg-8">
+          <input type="password" class="form-control" id="repassword" #repassword name="repassword" placeholder="Re-type Password">
+        </div>
+      </div>
+    </div>
+    <alert></alert>
+    <!--div class="form-group">
+      <div class="col-lg-7 col-lg-offset-3">
+        <label class="form-check-label checkbox-inline"><h5>
+          <input type="checkbox" class="form-check-input">Employer</h5>
+        </label>
+        <label class="form-check-label checkbox-inline"><h5>
+          <input type="checkbox" class="form-check-input">Employee</h5>
+        </label>
+      </div>
+    </div-->
+    <br>
+    <div class="form-group">
+      <div class="col-lg-7 col-lg-offset-3">
+        <button type="submit" class="btn btn-primary" [disabled]="loading">Register</button>
+        <img style="margin-left: 5px;" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+  </fieldset>
+</form>
