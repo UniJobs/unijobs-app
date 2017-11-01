@@ -15,11 +15,7 @@ export class LoginComponent {
 
   constructor(public router: Router , private loginService: LoginService, private alertService: AlertService) {
     if (localStorage.getItem('token') !== null) {
-      if (localStorage.getItem('role') !== null && localStorage.getItem('role') === '[ROLE_teacher]'){
-        router.navigateByUrl('/user'); }
-      else {
-        router.navigateByUrl('/user'); }
-    }
+        router.navigateByUrl('/user/home'); }
   }
 
   login(event) {
@@ -35,7 +31,7 @@ export class LoginComponent {
                 this.loginService.getByUsername(this.model.username)
                   .subscribe(user => {
                       localStorage.setItem('userId', user.id.toString());
-                      setTimeout(() => this.router.navigateByUrl('/user'), 1200);
+                      setTimeout(() => this.router.navigateByUrl('/user/home'), 1200);
 
                     },
                   );

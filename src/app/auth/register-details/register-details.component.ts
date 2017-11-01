@@ -48,7 +48,7 @@ export class RegisterDetailsComponent implements OnInit {
                       this.loginService.getByUsername(this.model.username)
                         .subscribe(user => {
                             localStorage.setItem('userId', user.id.toString());
-                            setTimeout(() => this.router.navigateByUrl('/user'), 1200);
+                            setTimeout(() => this.router.navigateByUrl('/user/home'), 1200);
                           },
                         );
                     },

@@ -10,15 +10,15 @@ import { PresentationLayoutComponent } from './layouts/presentation-layout/prese
 import {UserService} from "./service/user.service";
 import {MyAlertModule} from "./alert/alert.module";
 import {LoginService} from "./service/login.service";
-import { UserHomeLayoutComponent } from './layouts/user-home-layout/user-home-layout.component';
 import { RegisterDetailsComponent } from './auth/register-details/register-details.component';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     PresentationLayoutComponent,
-    UserHomeLayoutComponent,
+    UserLayoutComponent
   ],
   imports: [
     BrowserModule,

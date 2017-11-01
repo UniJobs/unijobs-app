@@ -3,7 +3,7 @@ import {AppComponent} from "../app.component";
 import {NgModule} from "@angular/core";
 import {FullLayoutComponent} from "../layouts/full-layout/full-layout.component";
 import {PresentationLayoutComponent} from "../layouts/presentation-layout/presentation-layout.component";
-import {UserHomeLayoutComponent} from "../layouts/user-home-layout/user-home-layout.component";
+import {UserLayoutComponent} from "../layouts/user-layout/user-layout.component";
 
 const routes: Routes = [
   {
@@ -17,7 +17,13 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserHomeLayoutComponent
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: './../modules/home/home.module#HomeModule'
+      }
+    ]
   },
   {
     path: 'auth',
