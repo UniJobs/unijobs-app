@@ -1,21 +1,32 @@
-<form class="form-horizontal" role="form" (ngSubmit)="f.form.valid && login($event)" #f="ngForm" novalidate>
+<h1 style="align-content: center"> Give us some more details! </h1>
+<br>
+<br>
+<form class="form-horizontal" role="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
   <fieldset>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username?.valid }">
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstname?.valid }">
        <div class="col-lg-6 col-lg-offset-3">
-          <label for="username" class="col-lg-3 control-label">Username</label>
+          <label for="username" class="col-lg-3 control-label">First Name</label>
           <div class="col-lg-8">
-             <input type="text" id="username" #username="ngModel" class="form-control" [(ngModel)]="model.username" name="username" placeholder="Username" required>
+             <input type="text" id="firstname" #firstname="ngModel" class="form-control" [(ngModel)]="model.firstname" name="firstname" placeholder="First Name" required>
           </div>
       </div>
     </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password?.valid }">
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname?.valid }">
        <div class="col-lg-6 col-lg-offset-3">
-          <label for="username" class="col-lg-3 control-label">Password</label>
+          <label for="username" class="col-lg-3 control-label">Last name</label>
           <div class="col-lg-8">
-              <input type="password" id="password" [(ngModel)]="model.password" #password="ngModel" class="form-control" name="password"  placeholder="Password" required>
+              <input type="text" id="lastname" [(ngModel)]="model.lastname" #lastname="ngModel" class="form-control" name="lastname"  placeholder="Last name" required>
           </div>
       </div>
     </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !dob?.valid }">
+           <div class="col-lg-6 col-lg-offset-3">
+              <label for="username" class="col-lg-3 control-label">Date of birth:</label>
+              <div class="col-lg-8">
+                  <input type="date" id="dob" [(ngModel)]="model.dob" #dob="ngModel" class="form-control" name="dob"  placeholder="dd/mm/yyyy" >
+              </div>
+          </div>
+        </div>
     <div class="form-group">
       <div class="col-lg-4 col-lg-offset-4">
         <button type="submit" class="btn btn-primary" [disabled]="loading">Submit</button>

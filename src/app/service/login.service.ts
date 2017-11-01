@@ -3,6 +3,7 @@ import { Http , Response } from '@angular/http';
 import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import {User} from '../models/user.model';
+import {log} from "util";
 
 @Injectable()
 export class LoginService {
@@ -19,6 +20,9 @@ export class LoginService {
 
   login(username, password): Observable<any> {
 
+    log('login ' + username);
+    log('login ' + password);
+
     const creds = 'grant_type=password'
       + '&username=' + username
       + '&password=' + password;
@@ -31,6 +35,7 @@ export class LoginService {
       .catch(this.handleError);
   }
 
+
   getByUsername(username: string): Observable<User> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic ' + this.basicHeader);
@@ -38,7 +43,7 @@ export class LoginService {
     const creds = 'access_token=' + localStorage.getItem('token');
 
 
-    const getUrl = `${this.OauthUser}?username=${username}&${creds}`;
+    const getUrl = `${this.OauthUser}/getUserByName?username=${username}&${creds}`;
     console.log(getUrl);
 
     return this.http.get(getUrl, {headers: headers})

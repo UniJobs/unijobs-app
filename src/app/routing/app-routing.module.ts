@@ -31,6 +31,10 @@ const routes: Routes = [
         path: 'register',
         loadChildren: './../auth/register/register.module#RegisterModule'
       },
+      {
+        path: 'register-details',
+        loadChildren: './../auth/register-details/register-details.module#RegisterDetailsModule'
+      }
     ]
   }
 ];

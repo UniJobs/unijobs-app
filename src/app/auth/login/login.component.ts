@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {LoginService} from "../../service/login.service";
-import {AlertService} from "../login-alert/login.alert.service";
+import {Router} from '@angular/router';
+import {LoginService} from '../../service/login.service';
+import {AlertService} from '../login-alert/login.alert.service';
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {AlertService} from "../login-alert/login.alert.service";
 })
 export class LoginComponent {
   loading = false;
+  model: User = new User;
 
   constructor(public router: Router , private loginService: LoginService, private alertService: AlertService) {
     if (localStorage.getItem('token') !== null) {
@@ -20,47 +22,24 @@ export class LoginComponent {
     }
   }
 
-  login(event, username, password) {
+  login(event) {
     this.loading = true;
     event.preventDefault();
-    this.loginService.login(username, password)
+    this.loginService.login(this.model.username, this.model.password)
       .subscribe(
         response => {
+          localStorage.setItem('token', response.access_token);
           this.loginService.checkToken(response.access_token)
             .subscribe(
               newresponse => {
-                if (newresponse.response === '[ROLE_teacher]') {
-                  localStorage.setItem('role', newresponse.response);
-                  localStorage.setItem('token', response.access_token);
-                  this.loginService.getByUsername(username)
-                    .subscribe(t => {
-                      localStorage.setItem('id', t.id.toString());
+                this.loginService.getByUsername(this.model.username)
+                  .subscribe(user => {
+                      localStorage.setItem('userId', user.id.toString());
                       setTimeout(() => this.router.navigateByUrl('/user'), 1200);
-                      setTimeout(() => this.alertService.success('Login successful.'), 500);
-                    }, err => {
-                      this.alertService.error('Error loading ID for this teacher account.')
-                      this.loading = false;
-                    });
-                }
-                else {
-                  localStorage.setItem('role', newresponse.response);
-                  localStorage.setItem('token', response.access_token);
-                  this.loginService.getByUsername(username)
-                    .subscribe(s => {
-                      localStorage.setItem('id', s.id.toString());
-                      setTimeout(() => this.router.navigateByUrl('/user'), 1200);
-                      setTimeout(() => this.alertService.success('Login successful.'), 500);
-                    }, err => {
-                      this.alertService.error('Error loading ID for this student account.')
-                      this.loading = false;
-                    });
-                }
-              },
-              error => {
-                setTimeout(() => this.loading = false, 1000);
-                setTimeout(() => this.alertService.error('Invalid login attempt.'), 1000);
-              }
-            );
+
+                    },
+                  );
+              },);
         },
         error => {
           setTimeout(() => this.loading = false, 1000);

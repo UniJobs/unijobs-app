@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {AlertModule} from "ng2-bootstrap";
 import {MyAlertModule} from "../../alert/alert.module";
+import {RegisterDetailsComponent} from "./register-details.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: RegisterComponent
+    component: RegisterDetailsComponent
   }
 ];
 
@@ -20,6 +19,6 @@ const routes: Routes = [
     FormsModule,
     MyAlertModule
   ],
-  declarations: [RegisterComponent]
+  declarations: [RegisterDetailsComponent]
 })
-export class RegisterModule { }
+export class RegisterDetailsModule { }
