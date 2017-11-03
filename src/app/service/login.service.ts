@@ -20,8 +20,8 @@ export class LoginService {
 
   login(username, password): Observable<any> {
 
-    log('login ' + username);
-    log('login ' + password);
+    log('inlogin ' + username);
+    log('inlogin ' + password);
 
     const creds = 'grant_type=password'
       + '&username=' + username
@@ -38,6 +38,9 @@ export class LoginService {
 
   getByUsername(username: string): Observable<User> {
     const headers = new Headers();
+    console.log('----getByUsername----');
+    console.log('username:', username);
+
     headers.append('Authorization', 'Basic ' + this.basicHeader);
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     const creds = 'access_token=' + localStorage.getItem('token');
@@ -76,10 +79,8 @@ export class LoginService {
 
   public logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('teacherId');
-    localStorage.removeItem('studentId');
-    localStorage.removeItem('username');
-    localStorage.removeItem('role');
+    localStorage.removeItem('userId');
+    localStorage.clear();
   }
 
 }

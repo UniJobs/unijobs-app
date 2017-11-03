@@ -50,8 +50,9 @@ export class UserService {
     return this.registeredUser;
   }
 
-  saveData(user: User) {
+  saveData(user: User, password:string) {
     this.registeredUser = user;
+    this.registeredUser.password = password;
     log('service' + this.registeredUser.id);
   }
 

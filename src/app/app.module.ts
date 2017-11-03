@@ -12,6 +12,7 @@ import {MyAlertModule} from "./alert/alert.module";
 import {LoginService} from "./service/login.service";
 import { RegisterDetailsComponent } from './auth/register-details/register-details.component';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+import {JobsService} from "./service/jobs.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { UserLayoutComponent } from './layouts/user-layout/user-layout.component
     AppRoutingModule,
     MyAlertModule,
   ],
-  providers: [UserService, LoginService],
+  providers: [UserService, LoginService, JobsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

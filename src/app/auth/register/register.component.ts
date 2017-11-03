@@ -26,12 +26,14 @@ export class RegisterComponent implements OnInit {
      // this.model.username = username;
     this.model.password = password;
     log(this.model.email);
+    console.log('register', this.model);
     if (password === repassword && password !== ' ') {
       this.loading = true;
       this.userService.create(this.model)
         .subscribe(
           data => {
-              this.userService.saveData(data);
+              console.log(data);
+               this.userService.saveData(data, this.model.password);
               this.alertService.success('Registration successful', true);
               setTimeout(() => this.router.navigateByUrl('/auth/register-details'), 1200);
           },

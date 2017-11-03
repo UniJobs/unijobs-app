@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from "../../../service/login.service";
+import {Router} from "@angular/router";
+import {User} from "../../../models/user.model";
+import {UserService} from "../../../service/user.service";
+import {log} from "util";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(public router: Router, private loginService: LoginService, private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(user => {
+      this.user = user;
+      console.log(this.user);
+    })
   }
 
 }

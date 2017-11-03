@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertService} from "../login-alert/login.alert.service";
-import {UserService} from "../../service/user.service";
-import {Router} from "@angular/router";
-import {register} from "ts-node/dist";
-import {log} from "util";
-import {User} from "../../models/user.model";
-import {LoginService} from "../../service/login.service";
+import {AlertService} from '../login-alert/login.alert.service';
+import {UserService} from '../../service/user.service';
+import {Router} from '@angular/router';
+import {register} from 'ts-node/dist';
+import {log} from 'util';
+import {User} from '../../models/user.model';
+import {LoginService} from '../../service/login.service';
 
 @Component({
   selector: 'app-register-details',
@@ -28,16 +28,18 @@ export class RegisterDetailsComponent implements OnInit {
   }
 
   submit() {
-    log(this.model.dob.toString());
+    console.log('dob', this.model.dob.toString());
     this.loading = true;
+    console.log();
     this.userService.updateUser(this.model)
       .subscribe(
         data => {
-          log(data.id.toString());
-          this.userService.saveData(data);
+          console.log('submit data: ', data);
+          this.userService.saveData(data, this.model.password);
           this.alertService.success('Registration successful', true);
           log('register-details ' + this.model.username);
           log('register-details ' + this.model.password);
+          console.log('register->login', this.model);
           this.loginService.login(this.model.username, this.model.password)
             .subscribe(
               response => {
@@ -64,6 +66,5 @@ export class RegisterDetailsComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         });
-
   }
 }
