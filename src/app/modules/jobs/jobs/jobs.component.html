@@ -1,0 +1,41 @@
+<div *ngIf="jobs">
+    <div class="input-group">
+        <div class="input-group-btn search-panel">
+    		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    		<span id="search_concept">Description</span> <span class="caret"></span>
+    		</button>
+    		<ul class="dropdown-menu" role="menu">
+    			<li (click)="updateSelected('Location')"><a ><i class="fa fa-angle-double-right"></i> Location</a></li>
+    			<!--li (click)="updateSelected('name')"><a ><i class="fa fa-angle-double-right"></i> Name</a></li-->
+    			<li (click)="updateSelected('Description')"><a ><i class="fa fa-angle-double-right"></i> Description</a></li>
+    		</ul>
+    	</div>
+    	<input type="hidden" name="search_param" value="name" id="search_param">
+    	<input type="text" class="form-control" name="q" placeholder="Search.." id="search_key" value="" [(ngModel)]='whatever' #searchinput>
+    	<span class="input-group-btn">
+    			<a (click)="clear()" class="btn btn-default text-muted"  title="Clear"><i class="glyphicon glyphicon-remove"></i> </a>
+    			<button class="btn btn-info" type="submit" (click)="filter(searchinput.value)">  Search  </button>
+    	</span>
+    </div>
+
+
+  <br>
+  <div class="row">
+    <div *ngFor="let job of jobs">
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h4>{{job.description}}</h4>
+            Pay: {{job.cost}} RON <br>
+            Time: {{job.hpw}} h / week <br>
+            Location: {{job.location}} <br>
+            <button class="btn btn-primary btn-xs pull-right">Apply</button>
+            <button class="btn btn-info btn-xs pull-right">Info</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
